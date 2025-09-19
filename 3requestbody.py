@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Body
 from pydantic import BaseModel
+from typing import Annotated
 
 # A request body is data sent by the client to your API. 
 # A response body is the data your API sends to the client.

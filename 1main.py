@@ -1,4 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Query,Path
+from typing import Annotated,Literal
+from pydantic import BaseModel,Field
+
+
 
 
 app = FastAPI()
@@ -63,3 +67,10 @@ def enumfun(model_name:ModelName):
     #model_name.value  model_name = Jagan
     if model_name.value == "Hemanth27": 
         return {"model_value":model_name}
+    
+
+
+
+
+
+

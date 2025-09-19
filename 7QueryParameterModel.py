@@ -15,6 +15,7 @@ class Filter(BaseModel):
 
 #path:Annotated[int,Path(gt=18,lt=55)] #we cam use Field() path:int = Field(default,ge=100)
 
+#QueryParameter see this clearly
 @app.get("/")
 def main(get_filters:Annotated[Filter,Query()]):
     print(get_filters)
