@@ -13,7 +13,7 @@ class Filter(BaseModel):
     tags:list[str] = []
 
 
-#path:Annotated[int,Path(gt=18,lt=55)] #we cam use Field() path:int = Field(default,ge=100)
+#path:Annotated[int,Path(gt=18,lt=55)] #we can use Field() path:int = Field(default,ge=100)
 
 #QueryParameter see this clearly
 @app.get("/")
@@ -21,6 +21,19 @@ def main(get_filters:Annotated[Filter,Query()]):
     print(get_filters)
     return get_filters
 
+"""So yes — you’re absolutely right: if the Pydantic model has defaults via Field(...), and 
+you write item: Annotated[Model, Query()], FastAPI will honor those defaults without needing to 
+put them in Query() again.
+
+#shows error but in Field() we are not default value.
+
+# class check(BaseModel):
+#     age:int = Field()
+# @app.get("/")
+# def main(item:Annotated[check,Query()]):
+#     return item
+
+""" 
 
 #model_config = {"extra_fields":"forbid"}
 

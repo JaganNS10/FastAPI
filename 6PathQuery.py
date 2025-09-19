@@ -34,7 +34,7 @@ def check(get_data:check_path_query,query:Annotated[int,Query(ge=18,lt=55)]=None
 
 
 class check_path_query(BaseModel):
-    path:Annotated[int,Path(gt=18,lt=55)] #we cam use Field() path:int = Field(default,ge=100)
+    path:Annotated[int,Path(gt=18,lt=55)] #we can use Field() path:int = Field(default,ge=100)
     query:Annotated[int,Query(ge=18,lt=55)]=None
 
 

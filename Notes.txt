@@ -77,5 +77,41 @@ parameter:str|None = Query(default=None)
 parameter:Annotated[str,Path()]
 parameter:Annotated[str,Query()] = None
 
-Path(default=None)
+Path(default=None) ->Error
 assert default is ..., "Path parameters cannot have a default value"
+
+Annotated[str,Query(default=None)] -> Error 
+
+AssertionError: `Query` default value cannot be set in `Annotated` for 'name'. 
+Set the default value with `=` instead.
+
+
+Annotated[str,Query()]=None -> Correct
+
+
+name:str = Query() -> required Field
+name:Annotated[str,Query]-> required Field
+
+instead -> 
+
+name:str = Query(default=None)
+name:Annotated[str,Query()] = None
+
+BaseModel -> use Field()
+Normal Function-> use Path(),Query(),Body()
+
+Note! if you are using BaseModel the request wil be in json format . don't except to be in url
+Note!
+
+Annotated[BaseModel,Query()]-> requests.post(url) accepts default value.
+Annotated[BaseModel,Body()] -> requests.post(url) json=data is mandatory.
+
+
+
+Best Practice:
+
+Use Field() inside Pydantic models to define metadata, default values, constraints, etc.
+
+Use Query(), Path(), Body() in your FastAPI endpoint function parameters to control how input is extracted.
+
+Field(max_digits=12)-> applied for only decimal field.from decimal import Decimal

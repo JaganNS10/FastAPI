@@ -138,7 +138,63 @@ get_response = requests.post(url,json=data)
 print(get_response.json())
 """
 
-url = f"http://127.0.0.1:8000/{20}"
 
-get_response = requests.get(url)
+"""
+url = f"http://127.0.0.1:8000/path/{1}"
+
+
+data = {
+    "item":{
+    "name":"Jagan",
+    "age":20
+    }
+}
+get_response = requests.post(url,json=data)
+print(get_response.json())
+"""
+
+"""
+url = "http://127.0.0.1:8000/nestedmodel/"
+
+data = {
+    "name":"Jagan",
+    "age":20,
+    "image":[
+        {
+        "name":"1.jpg",
+        "url":"https://google.com"
+        },
+        {
+        "name":"2.jpg",
+        "url":"https://brave.com"
+        }
+    ]
+}
+
+get_response = requests.post(url,json=data)
+print(get_response.json())
+"""
+
+
+
+url = "http://127.0.0.1:8000/deeplynestedmodel/"
+
+data = {
+    "items":[
+        {
+            "name":"Jagan",
+            "age":20,
+            "image":[
+                {
+                    "name":"logo.jpg",
+                    "url":"http://google.com"
+                }
+            ]
+        }
+    ]
+}
+
+# data = {}
+
+get_response = requests.post(url,json=data)
 print(get_response.json())
