@@ -73,7 +73,7 @@ def Model(item:NestedModel):
 
 #Deeply Nested Models
 class Offer(BaseModel):
-    items:List[NestedModel|None] = None
+    items:List[NestedModel|None] = None # items:[{"name":"",age:"",image:[{"name":"","url":""}]}]
 
 
 @app.post("/deeplynestedmodel/")
