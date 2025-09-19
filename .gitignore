@@ -10,6 +10,11 @@ venv/
 
 .env
 
+Scripts
+
+
+pyvenv.cfg
+
 # Environment variables
 *.env
 .env.*
