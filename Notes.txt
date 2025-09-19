@@ -1,0 +1,62 @@
+mkdir FastApi
+cd FastApi
+
+python -m venv env
+env\Scripts\activate.bat
+pip install "fastapi[standard]"
+
+To run the file -> fastapi dev filename.py
+
+
+mandatory ->
+
+from fastapi import FastAPI
+app = FastAPI()
+@app.get(path) , @app.post(path), @app.put(path), @app.delete()
+
+methods: 
+
+OPTIONS
+HEAD
+PATCH
+TRACE
+
+
+Quick rule:
+
+Path parameter = part of the URL structure (/items/{id})
+
+Query parameter = comes after ? (?q=10&limit=20)
+
+
+Annotated[str | None, Query(max_length=10)] = None
+str|None=Query(default=None,max_length=10)
+Annotated[list[int],Query()]=[1,2]
+
+
+Rule of thumb:
+
+Use Path → when parameter is in /{...}
+
+Use Query → when parameter is after ?
+
+Error: if your seeing this error-> you have add =None in the query parameter in the function.
+
+{'detail': [{'type': 'missing', 'loc': ['query', 'query'], 'msg': 'Field required', 'input': None}]}
+
+Path()
+Query()
+
+parameters->
+
+title
+description
+alias
+min_length
+max_length
+min_digit
+max_digit
+gt - greater than
+lt - lesser than
+ge - greater than or equal to
+le - lesser than or equal to

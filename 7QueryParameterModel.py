@@ -1,0 +1,28 @@
+from fastapi import FastAPI,Query
+from typing import Annotated,Literal
+from pydantic import BaseModel,Field
+
+app = FastAPI()
+
+
+class Filter(BaseModel):
+    model_config = {"extra":"forbid"}
+    limit:int = Field(default=100,gt=0,le=100)
+    offset:int = Field(default=0,ge=0)
+    order_by:Literal['created','updated'] = 'created'
+    tags:list[str] = []
+
+
+#path:Annotated[int,Path(gt=18,lt=55)] #we cam use Field() path:int = Field(default,ge=100)
+
+@app.get("/")
+def main(get_filters:Annotated[Filter,Query()]):
+    print(get_filters)
+    return get_filters
+
+
+#model_config = {"extra_fields":"forbid"}
+
+#In this url extra field id is included.-> id=1
+
+#http://localhost:8000/?limit=4&offset=10&order_by=updated&tags=[%22Jagan%22]&id=1
