@@ -60,3 +60,22 @@ gt - greater than
 lt - lesser than
 ge - greater than or equal to
 le - lesser than or equal to
+
+
+see only path or query parameter in get method .don't see in post method just required or not required.
+
+Field() is only used inside Pydantic models (like BaseModel).
+For function parameters (e.g., in FastAPI routes), use Query(), Path(), or Body(), not Field().
+
+
+Body() marks a parameter to come from the JSON body of the request
+
+syntax:
+parameter:str = Path() 
+parameter:str|None = Query(default=None)
+
+parameter:Annotated[str,Path()]
+parameter:Annotated[str,Query()] = None
+
+Path(default=None)
+assert default is ..., "Path parameters cannot have a default value"

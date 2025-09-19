@@ -27,3 +27,39 @@ def main(get_filters:Annotated[Filter,Query()]):
 #In this url extra field id is included.-> id=1
 
 #http://localhost:8000/?limit=4&offset=10&order_by=updated&tags=[%22Jagan%22]&id=1
+
+"""
+@app.get("/")
+
+def main(
+    limit:int = Query(default=100,gt=0,lt=101),
+    offset:int = Query(default=0,ge=0),
+    order_by:Literal["created","updated"] = "created",
+    tags:list[str] = []
+):
+    data = {
+        "limit":limit,
+        "offset":offset,
+        "order_by":order_by,
+        "tags":tags
+    }
+
+    return data
+"""
+
+
+
+"""
+
+class Filter(BaseModel):
+    model_config = {"extra": "forbid"}
+    limit: int = Field(default=100, gt=0, le=100)
+    offset: int = Field(default=0, ge=0)
+    order_by: Literal['created', 'updated'] = 'created'
+    tags: list[str] = []
+
+@app.post("/")
+def main(get_filters: Filter):
+    print(get_filters)
+    return get_filters
+"""

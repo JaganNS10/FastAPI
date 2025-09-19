@@ -138,4 +138,7 @@ get_response = requests.post(url,json=data)
 print(get_response.json())
 """
 
+url = f"http://127.0.0.1:8000/{20}"
 
+get_response = requests.get(url)
+print(get_response.json())
