@@ -200,3 +200,16 @@ get_response = requests.post(url,json=data)
 print(get_response.json())
 
 """
+
+#11CookieandHeaderParameter.py
+url = "http://127.0.0.1:8000/CookiePage"
+get_response = requests.get(url,cookies={"id":"Jagan"})
+print(get_response.json())
+
+
+url = "http://127.0.0.1:8000/Headerpage"
+
+get_response = requests.get(url,headers={"first_name":"Jagan"})
+print(get_response.json())
+print(get_response.headers)
+

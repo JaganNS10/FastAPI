@@ -115,3 +115,6 @@ Use Field() inside Pydantic models to define metadata, default values, constrain
 Use Query(), Path(), Body() in your FastAPI endpoint function parameters to control how input is extracted.
 
 Field(max_digits=12)-> applied for only decimal field.from decimal import Decimal
+
+
+In Annotated[CookieModel,Cookie()] = None this the Cookie() is always required even though if you are using = None
