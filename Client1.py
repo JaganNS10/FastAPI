@@ -37,7 +37,7 @@ get_response = requests.post(url,json=data)
 print(get_response.json())
 
 """
-
+"""
 url = "http://127.0.0.1:8000/"
 
 data = {
@@ -55,6 +55,30 @@ print(get_response.json())
 # else:
 #     print(get_response.json())
 
+"""
 
 
+"""
+url = "http://127.0.0.1:8000/"
 
+data = {
+    "name":"Jagan",
+    "email":"jagan10ns@gmail.com",
+    "password":"Jxgxn_10_@123"
+}
+
+
+get_response = requests.post(url,json=data)
+print(get_response.json())
+"""
+
+
+url = "http://127.0.0.1:8000/CarModel"
+
+data = {
+    "description":"This is carmodel",
+    "type":"bus"
+}
+
+get_response = requests.post(url,json=data)
+print(get_response.json())
