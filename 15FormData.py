@@ -1,5 +1,6 @@
 from fastapi import FastAPI,Form
 from typing import Annotated
+from pydantic import BaseModel,Field
 
 app = FastAPI()
 
@@ -8,3 +9,16 @@ app = FastAPI()
 def get_details(username:Annotated[str,Form()],password:Annotated[str,Form()]):
     print(True)
     return {"username":username}
+
+
+class FormModel(BaseModel):
+    username:str
+    password:str
+    age:int = Field(ge=18,le=55)
+
+
+@app.post('/FormModel')
+def FormModel(request:FormModel = Form()):
+    return {"username":request.username}
+    
+
