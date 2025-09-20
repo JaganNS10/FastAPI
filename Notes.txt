@@ -144,3 +144,8 @@ Note! if your using Form(), you have to give data instead of json
 This means FastAPI expects the data to come as:
 
 📦 application/x-www-form-urlencoded
+
+
+Form()
+File()
+UploadFile()
