@@ -138,3 +138,9 @@ def aribitery_keyword_argument(**kwargs):
     get_name(**kwargs)
 
 aribitery_keyword_argument(name="Jagan",age=20,salary=20000)
+
+
+Note! if your using Form(), you have to give data instead of json
+This means FastAPI expects the data to come as:
+
+📦 application/x-www-form-urlencoded
