@@ -13,7 +13,6 @@ class Filter(BaseModel):
     tags:list[str] = []
 
 
-#path:Annotated[int,Path(gt=18,lt=55)] #we can use Field() path:int = Field(default,ge=100)
 
 #QueryParameter see this clearly
 @app.get("/")
@@ -25,7 +24,7 @@ def main(get_filters:Annotated[Filter,Query()]):
 you write item: Annotated[Model, Query()], FastAPI will honor those defaults without needing to 
 put them in Query() again.
 
-#shows error but in Field() we are not default value.
+#shows errors in Field() if we don't provide default value.
 
 # class check(BaseModel):
 #     age:int = Field()
@@ -72,7 +71,7 @@ class Filter(BaseModel):
     tags: list[str] = []
 
 @app.post("/")
-def main(get_filters: Filter):
+def main(get_filters:Filter):
     print(get_filters)
     return get_filters
 """

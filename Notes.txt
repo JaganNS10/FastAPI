@@ -12,7 +12,7 @@ mandatory ->
 
 from fastapi import FastAPI
 app = FastAPI()
-@app.get(path) , @app.post(path), @app.put(path), @app.delete()
+@app.get(path) , @app.post(path), @app.put(path), @app.delete(path)
 
 methods: 
 
@@ -117,4 +117,4 @@ Use Query(), Path(), Body() in your FastAPI endpoint function parameters to cont
 Field(max_digits=12)-> applied for only decimal field.from decimal import Decimal
 
 
-In Annotated[CookieModel,Cookie()] = None this the Cookie() is always required even though if you are using = None
+In Annotated[CookieModel,Cookie()] = None  the Cookie() is always required even though if you are using = None
