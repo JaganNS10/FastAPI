@@ -118,3 +118,23 @@ Field(max_digits=12)-> applied for only decimal field.from decimal import Decima
 
 
 In Annotated[CookieModel,Cookie()] = None  the Cookie() is always required even though if you are using = None
+
+
+def aribitery_keyword_argument(**kwargs):
+    def get_name(name,**kwargs):
+        print(name)
+        print(kwargs)
+
+        def get_age(age,**kwargs):
+            print(age)
+            print(kwargs)
+
+            def get_salary(salary,**kwargs):
+                print(salary)
+                print(kwargs)
+
+            get_salary(**kwargs)
+        get_age(**kwargs)
+    get_name(**kwargs)
+
+aribitery_keyword_argument(name="Jagan",age=20,salary=20000)
