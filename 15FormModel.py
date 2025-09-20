@@ -15,10 +15,17 @@ class FormModel(BaseModel):
     username:str
     password:str
     age:int = Field(ge=18,le=55)
+    model_config = {"extra":"forbid","json_schema_extra":{
+        "example":{
+            "username":"str",
+            "password":"str",
+            "age":"int"
+        }
+    }}
 
 
 @app.post('/FormModel')
-def FormModel(request:FormModel = Form()):
+def FormModel(request:FormModel = Form()):#def FormModel(request:Annotated[FormModel,Form()]):
     return {"username":request.username}
     
 
